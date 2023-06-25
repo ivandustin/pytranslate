@@ -1,6 +1,6 @@
 from functools import partial
 from pyllm import llm
-from .constants import ASTERISK, TXT, PROMPTS
+from .constants import ASTERISK, TXT, PROMPTS, MODEL
 from .writelines import writelines
 from .read_file import read_file
 from .to_prompt import to_prompt
@@ -35,7 +35,10 @@ def main():
         lambda entry: list(map(partial(to_prompt, language, dictionary), entry)),
         entries,
     )
-    entries = map(lambda prompts: (prompts, clean(map(llm, prompts))), entries)
+    entries = map(
+        lambda prompts: (prompts, clean(map(partial(llm, model=MODEL), prompts))),
+        entries,
+    )
     for filepath, (prompts, lines) in zip(filepaths, entries):
         directory = filepath.parent.parent / language
         pfile = directory / (filepath.stem + PROMPTS + TXT)
