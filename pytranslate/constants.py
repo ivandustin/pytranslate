@@ -1,0 +1,6 @@
+TXT = ".txt"
+UTF8 = "utf-8"
+SPACE = " "
+NEWLINE = "\n"
+COLON = ":"
+EMPTY = ""

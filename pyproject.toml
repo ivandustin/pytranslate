@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "pytranslate"
+version = "0.1.0"
+description = "Translate ancient text word for word"
+authors = ["Ivan Dustin Bilon <ivan22.dust@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.scripts]
+pytranslate = "pytranslate.main:main"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyllm = {git = "https://github.com/ivandustin/pyllm.git"}
+multipledispatch = "^0.6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
