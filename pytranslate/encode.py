@@ -15,7 +15,7 @@ def encode(dictionary):
 
 @dispatch(str, str)
 def encode(key, value):
-    return key + COLON + SPACE + value
+    return encode(key) + COLON + SPACE + encode(value)
 
 
 @dispatch(str)
